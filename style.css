@@ -1,11 +1,12 @@
 :root {
-    --cor-fundo: #0a0a1a;
-    --cor-principal: #141430;
-    --cor-secundaria: #2a2a5a;
-    --cor-destaque: #00d4ff;
-    --cor-texto: #e0f7ff;
-    --cor-ia: #9d4edd;
-    --cor-ia-secundaria: #7b2cbf;
+    --cor-fundo: #0a0015;
+    --cor-principal: #1a0028;
+    --cor-secundaria: #3a0055;
+    --cor-destaque: #b300ff;
+    --cor-destaque-claro: #d580ff;
+    --cor-texto: #f0e6ff;
+    --cor-brilho: #cc00ff;
+    --cor-sombra: rgba(179, 0, 255, 0.4);
 }
 
 * {
@@ -23,76 +24,95 @@ body {
     min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-image: 
-        radial-gradient(ellipse at 20% 50%, rgba(157, 78, 221, 0.1) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 60%);
+        radial-gradient(ellipse at 20% 50%, rgba(179, 0, 255, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(179, 0, 255, 0.1) 0%, transparent 60%);
 }
 
 .caixa-principal {
     background-color: var(--cor-principal);
     width: 90%;
-    max-width: 700px;
+    max-width: 750px;
     text-align: center;
-    padding: 30px 25px;
+    padding: 35px 30px;
     border-radius: 20px;
-    border: 1px solid rgba(157, 78, 221, 0.2);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 212, 255, 0.05);
+    border: 2px solid var(--cor-destaque);
+    box-shadow: 
+        0 0 40px var(--cor-sombra),
+        0 0 80px rgba(179, 0, 255, 0.1),
+        inset 0 0 60px rgba(179, 0, 255, 0.05);
     transition: all 0.3s ease;
 }
 
+.caixa-principal:hover {
+    box-shadow: 
+        0 0 60px var(--cor-sombra),
+        0 0 120px rgba(179, 0, 255, 0.15),
+        inset 0 0 80px rgba(179, 0, 255, 0.08);
+}
+
 h1 {
-    color: var(--cor-destaque);
-    font-size: 2.2rem;
+    color: var(--cor-destaque-claro);
+    font-size: 2.3rem;
     margin-bottom: 25px;
-    text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-    letter-spacing: 1px;
+    text-shadow: 
+        0 0 20px var(--cor-sombra),
+        0 0 40px var(--cor-sombra),
+        0 0 60px rgba(179, 0, 255, 0.2);
+    letter-spacing: 2px;
+    font-weight: 700;
 }
 
 h1::after {
     content: '';
     display: block;
-    width: 60px;
+    width: 80px;
     height: 3px;
-    background: linear-gradient(90deg, var(--cor-ia), var(--cor-destaque));
-    margin: 10px auto 0;
+    background: linear-gradient(90deg, transparent, var(--cor-destaque), var(--cor-destaque-claro), var(--cor-destaque), transparent);
+    margin: 12px auto 0;
     border-radius: 2px;
+    box-shadow: 0 0 20px var(--cor-sombra);
 }
 
 .caixa-perguntas {
     font-size: 1.3rem;
     font-weight: 500;
     margin: 20px 0 30px;
-    padding: 15px;
+    padding: 20px;
     min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(179, 0, 255, 0.06);
     border-radius: 12px;
-    border-left: 3px solid var(--cor-ia);
-    line-height: 1.6;
+    border-left: 4px solid var(--cor-destaque);
+    border-right: 1px solid rgba(179, 0, 255, 0.1);
+    line-height: 1.7;
+    color: var(--cor-texto);
+    text-shadow: 0 0 10px rgba(179, 0, 255, 0.1);
 }
 
 .caixa-alternativas {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
     margin: 15px 0 25px;
 }
 
 button {
     background-color: var(--cor-secundaria);
     color: var(--cor-texto);
-    border: 1px solid rgba(157, 78, 221, 0.2);
+    border: 1px solid var(--cor-destaque);
     border-radius: 12px;
-    padding: 16px 20px;
+    padding: 16px 22px;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 400;
-    line-height: 1.4;
+    line-height: 1.5;
     text-align: left;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 0 15px rgba(179, 0, 255, 0.1);
 }
 
 button::before {
@@ -102,8 +122,8 @@ button::before {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.05), transparent);
-    transition: left 0.5s ease;
+    background: linear-gradient(90deg, transparent, rgba(179, 0, 255, 0.15), transparent);
+    transition: left 0.6s ease;
 }
 
 button:hover::before {
@@ -111,24 +131,28 @@ button:hover::before {
 }
 
 button:hover {
-    background-color: var(--cor-ia);
+    background-color: var(--cor-destaque);
     color: #fff;
-    border-color: var(--cor-destaque);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(157, 78, 221, 0.3);
+    border-color: var(--cor-destaque-claro);
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 
+        0 8px 30px var(--cor-sombra),
+        0 0 60px rgba(179, 0, 255, 0.2);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 button:active {
-    transform: translateY(0px);
+    transform: translateY(0px) scale(0.99);
 }
 
 .caixa-resultado {
     margin-top: 20px;
     padding: 20px;
-    background: rgba(157, 78, 221, 0.08);
+    background: rgba(179, 0, 255, 0.08);
     border-radius: 12px;
-    border: 1px solid rgba(157, 78, 221, 0.15);
+    border: 1px solid var(--cor-destaque);
     display: none;
+    box-shadow: inset 0 0 30px rgba(179, 0, 255, 0.05);
 }
 
 .caixa-resultado.ativo {
@@ -138,15 +162,60 @@ button:active {
 
 .texto-resultado {
     font-size: 1.1rem;
-    line-height: 1.8;
+    line-height: 1.9;
     text-align: justify;
     color: var(--cor-texto);
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(179, 0, 255, 0.04);
+    border-radius: 8px;
+    border-left: 2px solid var(--cor-destaque);
+}
+
+.btn-recomeco {
+    background-color: var(--cor-destaque);
+    color: #fff;
+    border: none;
+    padding: 14px 35px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin: 10px auto 20px;
+    display: inline-block;
+    box-shadow: 0 0 30px var(--cor-sombra);
+    letter-spacing: 1px;
+}
+
+.btn-recomeco:hover {
+    background-color: var(--cor-destaque-claro);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 0 50px var(--cor-sombra), 0 0 80px rgba(179, 0, 255, 0.2);
+}
+
+.texto-explicativo {
+    margin-top: 20px;
+    padding: 18px 20px;
+    background: rgba(179, 0, 255, 0.06);
+    border-radius: 10px;
+    border: 1px solid rgba(179, 0, 255, 0.15);
+    text-align: justify;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #d4bfff;
+}
+
+.texto-explicativo strong {
+    color: var(--cor-destaque-claro);
+    text-shadow: 0 0 15px var(--cor-sombra);
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -166,11 +235,21 @@ button:active {
 
     .caixa-perguntas {
         font-size: 1.1rem;
-        padding: 12px;
+        padding: 15px;
     }
 
     button {
         padding: 14px 16px;
         font-size: 0.95rem;
+    }
+
+    .texto-explicativo {
+        font-size: 0.85rem;
+        padding: 14px 16px;
+    }
+
+    .btn-recomeco {
+        padding: 12px 25px;
+        font-size: 1rem;
     }
 }
