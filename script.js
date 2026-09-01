@@ -3,6 +3,7 @@ const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
+const btnRecomeco = document.getElementById("btnRecomeco");
 
 const perguntas = [
     {
@@ -84,6 +85,7 @@ function mostraPergunta() {
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
     caixaAlternativas.textContent = "";
+    caixaResultado.classList.remove("ativo");
     mostraAlternativas();
 }
 
@@ -104,11 +106,22 @@ function respostaSelecionada(opcaoSelecionada) {
 }
 
 function mostraResultado() {
-    caixaPerguntas.textContent = "🤖 O Futuro da IA - Sua visão:";
+    caixaPerguntas.textContent = "🤖 Sua Visão sobre o Futuro da IA:";
     textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = "";
     caixaResultado.classList.add("ativo");
+    btnRecomeco.style.display = "inline-block";
 }
 
-mostraPergunta();
+function recomecar() {
+    atual = 0;
+    historiaFinal = "";
+    caixaResultado.classList.remove("ativo");
+    btnRecomeco.style.display = "none";
+    mostraPergunta();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+btnRecomeco.addEventListener("click", recomecar);
+
 mostraPergunta();
