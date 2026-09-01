@@ -4,6 +4,9 @@ const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
 const btnRecomeco = document.getElementById("btnRecomeco");
+const btnInicio = document.getElementById("btnInicio");
+const progressoBar = document.getElementById("progressoBar");
+const progressoTexto = document.getElementById("progressoTexto");
 
 const perguntas = [
     {
@@ -76,6 +79,43 @@ const perguntas = [
 let atual = 0;
 let perguntaAtual;
 let historiaFinal = "";
+let respostasSelecionadas = [];
+
+// Criar partículas
+function criarParticulas() {
+    const container = document.getElementById('particulas');
+    const numParticulas = 60;
+    
+    for (let i = 0; i < numParticulas; i++) {
+        const particula = document.createElement('div');
+        particula.className = 'particula';
+        const tamanho = Math.random() * 4 + 2;
+        const duracao = Math.random() * 15 + 10;
+        const offset = (Math.random() - 0.5) * 200;
+        const atraso = Math.random() * 15;
+        
+        particula.style.cssText = `
+            width: ${tamanho}px;
+            height: ${tamanho}px;
+            left: ${Math.random() * 100}%;
+            bottom: -10px;
+            --duracao: ${duracao}s;
+            --offset: ${offset};
+            animation-delay: ${atraso}s;
+            background: ${Math.random() > 0.5 ? '#b300ff' : '#d580ff'};
+            box-shadow: 0 0 ${tamanho * 3}px ${Math.random() > 0.5 ? '#b300ff' : '#d580ff'};
+        `;
+        
+        container.appendChild(particula);
+    }
+}
+
+function atualizarProgresso() {
+    const total = perguntas.length;
+    const progresso = ((atual) / total) * 100;
+    progressoBar.style.width = `${Math.min(progresso, 100)}%`;
+    progressoTexto.textContent = `${Math.min(atual + 1, total)} / ${total}`;
+}
 
 function mostraPergunta() {
     if (atual >= perguntas.length) {
@@ -86,6 +126,7 @@ function mostraPergunta() {
     caixaPerguntas.textContent = perguntaAtual.enunciado;
     caixaAlternativas.textContent = "";
     caixaResultado.classList.remove("ativo");
+    atualizarProgresso();
     mostraAlternativas();
 }
 
@@ -100,28 +141,49 @@ function mostraAlternativas() {
 
 function respostaSelecionada(opcaoSelecionada) {
     const afirmacoes = opcaoSelecionada.afirmacao;
+    respostasSelecionadas[atual] = opcaoSelecionada;
     historiaFinal += afirmacoes + " ";
     atual++;
     mostraPergunta();
 }
 
 function mostraResultado() {
-    caixaPerguntas.textContent = "🤖 Sua Visão sobre o Futuro da IA:";
+    caixaPerguntas.textContent = "";
     textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = "";
     caixaResultado.classList.add("ativo");
-    btnRecomeco.style.display = "inline-block";
+    atualizarProgresso();
+    // Esconde o progresso quando chega no resultado
+    document.querySelector('.progresso-container').style.opacity = '0.3';
 }
 
 function recomecar() {
     atual = 0;
     historiaFinal = "";
+    respostasSelecionadas = [];
     caixaResultado.classList.remove("ativo");
-    btnRecomeco.style.display = "none";
+    document.querySelector('.progresso-container').style.opacity = '1';
+    progressoBar.style.width = '0%';
+    progressoTexto.textContent = '0 / 5';
+    mostraPergunta();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function voltarInicio() {
+    atual = 0;
+    historiaFinal = "";
+    respostasSelecionadas = [];
+    caixaResultado.classList.remove("ativo");
+    document.querySelector('.progresso-container').style.opacity = '1';
+    progressoBar.style.width = '0%';
+    progressoTexto.textContent = '0 / 5';
     mostraPergunta();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 btnRecomeco.addEventListener("click", recomecar);
+btnInicio.addEventListener("click", voltarInicio);
 
+// Inicializa
+criarParticulas();
 mostraPergunta();
