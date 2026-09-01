@@ -9,16 +9,45 @@
 <body>
     <div class="caixa-principal">
         <h1>🤖 O Futuro da Inteligência Artificial</h1>
+        
+        <!-- Indicador de progresso -->
+        <div class="progresso-container">
+            <div class="progresso-bar" id="progressoBar"></div>
+            <span class="progresso-texto" id="progressoTexto">1 / 5</span>
+        </div>
+
         <div class="caixa-perguntas"></div>
         <div class="caixa-alternativas"></div>
+        
         <div class="caixa-resultado">
+            <div class="resultado-titulo">🌟 SUA VISÃO SOBRE O FUTURO DA IA</div>
             <p class="texto-resultado"></p>
-            <button class="btn-recomeco" id="btnRecomeco">🔄 Recomeçar</button>
+            
+            <div class="botoes-acoes">
+                <button class="btn-inicio" id="btnInicio">
+                    <span class="btn-icon">🏠</span>
+                    <span class="btn-texto">Voltar para o Início</span>
+                </button>
+                <button class="btn-recomeco" id="btnRecomeco">
+                    <span class="btn-icon">🔄</span>
+                    <span class="btn-texto">Refazer Quiz</span>
+                </button>
+            </div>
+            
+            <div class="linha-divisoria"></div>
+            
             <div class="texto-explicativo">
-                <p><strong>📖 Sobre o Tema:</strong> A Inteligência Artificial está moldando o futuro da humanidade de maneiras sem precedentes. Desde a automação de tarefas até a criação de arte, a IA tem o potencial de transformar todos os aspectos da nossa sociedade. Este quiz foi desenvolvido para estimular a reflexão sobre como podemos guiar o desenvolvimento da IA de forma ética, inclusiva e benéfica para todos. As questões abordam temas como ética, trabalho, criatividade e o relacionamento entre humanos e máquinas.</p>
+                <div class="explicativo-icon">💡</div>
+                <div class="explicativo-conteudo">
+                    <p><strong>📖 Sobre o Tema:</strong> A Inteligência Artificial está moldando o futuro da humanidade de maneiras sem precedentes. Desde a automação de tarefas até a criação de arte, a IA tem o potencial de transformar todos os aspectos da nossa sociedade. Este quiz foi desenvolvido para estimular a reflexão sobre como podemos guiar o desenvolvimento da IA de forma ética, inclusiva e benéfica para todos. As questões abordam temas como ética, trabalho, criatividade e o relacionamento entre humanos e máquinas.</p>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Partículas de fundo futuristas -->
+    <div class="particulas" id="particulas"></div>
+    
     <script src="script.js"></script>
 </body>
 </html>
