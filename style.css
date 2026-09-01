@@ -1,10 +1,17 @@
-:root{
-    --cor-fundo: #01080E ;
-    --cor-principal: #0B0D20 ;
-    --cor-secundaria: #212333; 
-    --cor-destaque: #2BDEFD;
-    --cor-texto: #D7F9FF;
+:root {
+    --cor-fundo: #0a0a1a;
+    --cor-principal: #141430;
+    --cor-secundaria: #2a2a5a;
+    --cor-destaque: #00d4ff;
+    --cor-texto: #e0f7ff;
+    --cor-ia: #9d4edd;
+    --cor-ia-secundaria: #7b2cbf;
+}
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -14,30 +21,156 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: 
+        radial-gradient(ellipse at 20% 50%, rgba(157, 78, 221, 0.1) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 60%);
 }
 
-.caixa-principal{
+.caixa-principal {
     background-color: var(--cor-principal);
     width: 90%;
-    max-width: 600px;
+    max-width: 700px;
     text-align: center;
-    padding: 20px;
+    padding: 30px 25px;
+    border-radius: 20px;
+    border: 1px solid rgba(157, 78, 221, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 212, 255, 0.05);
+    transition: all 0.3s ease;
 }
 
-h1{
+h1 {
     color: var(--cor-destaque);
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    letter-spacing: 1px;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--cor-ia), var(--cor-destaque));
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.caixa-perguntas {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 20px 0 30px;
+    padding: 15px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border-left: 3px solid var(--cor-ia);
+    line-height: 1.6;
+}
+
+.caixa-alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 15px 0 25px;
 }
 
 button {
     background-color: var(--cor-secundaria);
     color: var(--cor-texto);
-    border: none;
-    border-radius: 15px;
-    padding: 15px;
-    transition: background-color 0.3s;
+    border: 1px solid rgba(157, 78, 221, 0.2);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
 }
 
-button:hover{
-    background-color: var(--cor-destaque);
-    color: var(--cor-principal);
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.05), transparent);
+    transition: left 0.5s ease;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:hover {
+    background-color: var(--cor-ia);
+    color: #fff;
+    border-color: var(--cor-destaque);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(157, 78, 221, 0.3);
+}
+
+button:active {
+    transform: translateY(0px);
+}
+
+.caixa-resultado {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(157, 78, 221, 0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(157, 78, 221, 0.15);
+    display: none;
+}
+
+.caixa-resultado.ativo {
+    display: block;
+    animation: fadeIn 0.6s ease;
+}
+
+.texto-resultado {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+    color: var(--cor-texto);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .caixa-principal {
+        padding: 20px 15px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .caixa-perguntas {
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+
+    button {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
 }
