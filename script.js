@@ -6,46 +6,71 @@ const textoResultado = document.querySelector(".texto-resultado");
 
 const perguntas = [
     {
-        enunciado: "Atualmente o hábito de leitura não é comum entre os jovens, a leitura é algo importânte para a formação desses jovens?",
+        enunciado: "A Inteligência Artificial está cada vez mais presente em nosso dia a dia. Você acredita que a IA deve ser amplamente utilizada para tomar decisões importantes na sociedade, como em áreas da saúde, justiça e educação?",
         alternativas: [
             {
-                texto: "Sim, já que, além de inumeros livros servirem de base para vestibulares, eles podem trazer conhecimentos de assuntos diversos e expandir o vacabulario do leitor",
-                afirmacao: "Os livros ainda são de uma grande importância para os estudos e para a formação da etica e moral da população, sendo sem dúvidas um grande alicerce da sociedade."
+                texto: "Sim, a IA pode processar grandes volumes de dados e encontrar padrões que humanos não conseguem, o que pode levar a decisões mais precisas e eficientes.",
+                afirmacao: "A IA tem o potencial de revolucionar áreas como saúde e educação, oferecendo diagnósticos mais rápidos e personalização do ensino. No entanto, é essencial que haja supervisão humana para evitar vieses e garantir decisões éticas."
             },
             {
-                texto: "A leitura é indiferente, já que, atualmente não são necessarios livros para os estudos ou enterterimento, já que, atualmente não são necessarios livros para estudos levando em conta que hoje é possível encomtrar ambos nas redes sociais",
-                afirmacao: "Apesar do grande acesso a informaçõese conteúdos que as redes sociais nos proporcionam, os livros não deixam de ser essenciais na sociedade seja para estudos ou para obter conhecimento."
+                texto: "Não, decisões importantes devem ser tomadas exclusivamente por humanos, pois a IA pode conter vieses e não possui capacidade de compreensão ética e moral.",
+                afirmacao: "Embora a IA seja uma ferramenta poderosa, decisões cruciais devem manter o julgamento humano no centro, garantindo que valores como empatia, justiça e responsabilidade sejam preservados."
             }
         ]
     },
     {
-        enunciado: "Algumas pessoas tem muita dificuldade para começarem no mundo da leitura, dito isso qual seria a maneira mais recomendada para se começar a ler?",
+        enunciado: "Com o avanço da IA, muitas profissões podem ser automatizadas. Como você acha que a sociedade deve lidar com essa transição?",
         alternativas: [
             {
-                texto: "Ler livros pequenos, de facíl entendimento e que sejam de assuntos de interesse do leitor.",
-                afirmacao: "Para quem não  tem o hábito de ler, porém tem vontadede iniciar no mundo da leitura o mais indicado seria ler livros pequenos e de assuntos que sejam de interesse do leitor para despertar o interesse da leitura e tornar a mesma um habito."
+                texto: "Devemos investir em programas de requalificação profissional e educação continuada para preparar as pessoas para as novas oportunidades criadas pela IA.",
+                afirmacao: "A automação de tarefas repetitivas pode libertar os humanos para se concentrarem em atividades criativas e estratégicas. O investimento em educação e requalificação é fundamental para uma transição justa e inclusiva."
             },
             {
-                texto: "Ler livros didáticos e de autores conhecidos.",
-                afirmacao: "Para quem tem interessede começar na leitura não seria ideal começar diretamente pelos clássicos já que a leitura dos mesmos pode ser mais dificil dificultando assim a criação do habito da leitura."
+                texto: "É necessário criar regulamentações que limitem o uso da IA em certas áreas para proteger os empregos humanos.",
+                afirmacao: "A regulamentação do uso da IA pode ajudar a proteger trabalhadores e garantir que a tecnologia seja usada de forma ética, mas deve ser equilibrada para não sufocar a inovação."
             }
         ]
     },
     {
-        enunciado: "Atualmente vemos um grande aumentos nos valores dos livros físicos, oque dificulta a aquisição dos mesmos, a leitura digital vem se popularizou entre os leitores nos ultimos anos em parte pelos preços mais acessiveis, então seria ela uma alternativa viavel aos livros físicos?",
+        enunciado: "A IA generativa, como modelos de linguagem e criação de imagens, está se tornando cada vez mais sofisticada. Como você enxerga o futuro da criatividade com essas ferramentas?",
         alternativas: [
             {
-                texto: "Provavelmente, já que iria possibilitar uma maior aquisição por parte da população.",
-                afirmacao: "Já para quem não  tem condições de adquirir livros físicos os livros online são uma otima opção, pois permite a aquisição dos mesmos por um preço muito menor ou até mesmo gratuitamente, o que sem duvidas pode abrir grandes portas para esses leitores."
+                texto: "A IA generativa pode ser uma aliada incrível para artistas e criadores, expandindo os limites da criatividade e permitindo a criação de obras que seriam impossíveis sozinhos.",
+                afirmacao: "A IA generativa tem o poder de democratizar a criatividade, permitindo que mais pessoas expressem suas ideias artisticamente, mesmo sem habilidades técnicas avançadas."
             },
             {
-                texto: "Não teria grande importância já que grande parte da população continuaria adquirindo livros físicos apesar dos preços.",
-                afirmacao: "Apesar do consumo de livros físicos ainda ser maioria os livros oline permitem que pessoas que não podem adquirir livros físicos tenham acesso a leitura, podendo gerar grandes oportunidades para esses leitores."
+                texto: "A criação de conteúdo por IA pode desvalorizar o trabalho humano e gerar uma saturação de conteúdo artificial e sem originalidade.",
+                afirmacao: "A IA generativa, se usada de forma ética, pode complementar a criatividade humana, não substituí-la. O valor humano ainda será central, pois a IA não possui vivência, emoções ou contexto cultural genuíno."
             }
         ]
     },
+    {
+        enunciado: "A IA pode aprender e evoluir com base nos dados que recebe. Como você acredita que devemos garantir que a IA seja desenvolvida de forma ética e inclusiva?",
+        alternativas: [
+            {
+                texto: "É fundamental ter diversidade nas equipes de desenvolvimento de IA e incluir representantes da sociedade nos processos de criação e avaliação.",
+                afirmacao: "O desenvolvimento ético da IA requer transparência, diversidade e participação social para garantir que os sistemas reflitam os valores e necessidades de toda a população."
+            },
+            {
+                texto: "As empresas de tecnologia devem ser responsáveis pela ética da IA, com mecanismos de autorregulação e fiscalização interna.",
+                afirmacao: "Embora as empresas tenham um papel crucial, a ética da IA é uma responsabilidade compartilhada entre desenvolvedores, usuários e governos, exigindo regulamentações claras e participação ativa da sociedade."
+            }
+        ]
+    },
+    {
+        enunciado: "Como você imagina o relacionamento entre humanos e IA no futuro?",
+        alternativas: [
+            {
+                texto: "Veremos uma colaboração harmoniosa, onde humanos e IA trabalharão juntos para resolver os grandes desafios da humanidade.",
+                afirmacao: "O futuro da IA depende das escolhas que fazemos hoje. Com consciência e responsabilidade, podemos construir um mundo onde humanos e máquinas colaboram para um futuro melhor e mais sustentável."
+            },
+            {
+                texto: "Precisamos ter cautela, pois a IA pode se tornar uma ameaça se não for devidamente controlada e regulamentada.",
+                afirmacao: "A inteligência artificial é uma ferramenta extraordinária, mas seu desenvolvimento deve ser guiado por princípios éticos sólidos. A humanidade é a responsável por definir os limites e direções dessa tecnologia."
+            }
+        ]
+    }
 ];
-
 
 let atual = 0;
 let perguntaAtual;
@@ -62,8 +87,8 @@ function mostraPergunta() {
     mostraAlternativas();
 }
 
-function mostraAlternativas(){
-    for(const alternativa of perguntaAtual.alternativas) {
+function mostraAlternativas() {
+    for (const alternativa of perguntaAtual.alternativas) {
         const botaoAlternativas = document.createElement("button");
         botaoAlternativas.textContent = alternativa.texto;
         botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
@@ -79,9 +104,11 @@ function respostaSelecionada(opcaoSelecionada) {
 }
 
 function mostraResultado() {
-    caixaPerguntas.textContent = "Sobre a leitura...";
+    caixaPerguntas.textContent = "🤖 O Futuro da IA - Sua visão:";
     textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = "";
+    caixaResultado.classList.add("ativo");
 }
 
+mostraPergunta();
 mostraPergunta();
